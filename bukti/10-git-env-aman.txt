@@ -1,0 +1,10 @@
+$ git check-ignore -v .env
+.gitignore:1:.env	.env
+
+$ git log --format="%h %an %s" main..container/hardening
+a0746c5 Anata Budi Ayuni container: placeholder password di .env.example
+e8c3831 Anata Budi Ayuni container: TZ Asia/Jakarta dan user non-root di stage prod
+6f6f10c Anata Budi Ayuni container: healthcheck app, nama project, image Docker Hub, healthcheck db via TCP
+
+$ git log --all --name-only | grep -cx .env   # 0 = .env tidak pernah ada di riwayat commit
+0

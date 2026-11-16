@@ -1,0 +1,7 @@
+$ docker compose exec app sh -c "whoami; date"
+node
+Mon Nov 16 23:06:34 WIB 2026
+
+$ docker inspect -f "{{.HostConfig.RestartPolicy.Name}}" kirimcepat-app-1 kirimcepat-db-1
+/kirimcepat-app-1 unless-stopped
+/kirimcepat-db-1 unless-stopped

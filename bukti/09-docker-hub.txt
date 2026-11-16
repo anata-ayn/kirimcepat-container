@@ -1,0 +1,8 @@
+$ docker push anatabudiayuni/kirimcepat:1
+1: digest: sha256:114890a769e601428e4b2f19a54c2896150676d9a217e6e1295327f652edd57f size: 2493
+$ docker push anatabudiayuni/kirimcepat:latest
+latest: digest: sha256:114890a769e601428e4b2f19a54c2896150676d9a217e6e1295327f652edd57f size: 2493
+
+$ curl -s https://hub.docker.com/v2/repositories/anatabudiayuni/kirimcepat/tags
+latest sha256:114890a769e601428e4b2f19a54c2896150676d9a217e6e1295327f652edd57f 2026-11-16T15:40:12.94761Z
+1 sha256:114890a769e601428e4b2f19a54c2896150676d9a217e6e1295327f652edd57f 2026-11-16T15:40:10.594286Z

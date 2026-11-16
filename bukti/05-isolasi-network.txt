@@ -1,0 +1,15 @@
+$ docker network inspect kirimcepat_backend --format "{{.Internal}}"
+true
+
+$ docker network inspect kirimcepat_backend --format "{{range .Containers}}{{.Name}} {{end}}"
+kirimcepat-db-1 kirimcepat-app-1 
+
+$ docker network inspect kirimcepat_frontend --format "{{range .Containers}}{{.Name}} {{end}}"
+kirimcepat-app-1 
+
+$ docker run --rm --network kirimcepat_backend alpine ping -c1 -W2 8.8.8.8
+PING 8.8.8.8 (8.8.8.8): 56 data bytes
+ping: sendto: Network unreachable
+
+$ bash -c "echo > /dev/tcp/127.0.0.1/3306"   # coba konek dari host ke port MySQL
+bash: line 1: /dev/tcp/127.0.0.1/3306: Connection refused

@@ -1,0 +1,42 @@
+$ docker compose down
+ Container kirimcepat-app-1  Stopping
+ Container kirimcepat-app-1  Stopped
+ Container kirimcepat-app-1  Removing
+ Container kirimcepat-app-1  Removed
+ Container kirimcepat-db-1  Stopping
+ Container kirimcepat-db-1  Stopped
+ Container kirimcepat-db-1  Removing
+ Container kirimcepat-db-1  Removed
+ Network kirimcepat_backend  Removing
+ Network kirimcepat_frontend  Removing
+ Network kirimcepat_backend  Removed
+ Network kirimcepat_frontend  Removed
+
+$ docker compose up -d --wait
+ Network kirimcepat_backend  Creating
+ Network kirimcepat_backend  Created
+ Network kirimcepat_frontend  Creating
+ Network kirimcepat_frontend  Created
+ Container kirimcepat-db-1  Creating
+ Container kirimcepat-db-1  Created
+ Container kirimcepat-app-1  Creating
+ Container kirimcepat-app-1  Created
+ Container kirimcepat-db-1  Starting
+ Container kirimcepat-db-1  Started
+ Container kirimcepat-db-1  Waiting
+ Container kirimcepat-db-1  Healthy
+ Container kirimcepat-app-1  Starting
+ Container kirimcepat-app-1  Started
+ Container kirimcepat-app-1  Waiting
+ Container kirimcepat-db-1  Waiting
+ Container kirimcepat-db-1  Healthy
+ Container kirimcepat-app-1  Healthy
+
+$ docker compose exec db mysql -uroot -p kirimcepat -e "SELECT * FROM tarif_zona"
+zona	tarif_per_kg
+dekat	8000
+jauh	18000
+sedang	12000
+
+$ docker volume ls | grep kirimcepat
+local     kirimcepat_dbdata

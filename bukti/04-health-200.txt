@@ -1,0 +1,16 @@
+$ curl -i http://localhost:8000/health
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 25
+ETag: W/"19-IThsoaf3wJVr7MHEeXYUDq78/OE"
+Date: Mon, 16 Nov 2026 16:05:36 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"status":"ok","db":"up"}
+
+$ docker compose logs app
+app-1  | migrasi dijalankan: 001_init.sql
+app-1  | migrasi dijalankan: 002_seed.sql
+app-1  | KirimCepat berjalan di port 8000

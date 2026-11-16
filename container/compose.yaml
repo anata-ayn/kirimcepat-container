@@ -1,0 +1,44 @@
+name: kirimcepat
+
+services:
+  app:
+    image: anatabudiayuni/kirimcepat:latest
+    env_file: .env
+    environment:
+      TZ: Asia/Jakarta
+    ports: ["8000:8000"]
+    depends_on:
+      db:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:8000/health || exit 1"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+      start_period: 20s
+    networks: [frontend, backend]
+    restart: unless-stopped
+
+  db:
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: ${DB_NAME}
+      TZ: Asia/Jakarta
+    volumes: [dbdata:/var/lib/mysql]
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -uroot -p$$MYSQL_ROOT_PASSWORD"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+      start_period: 30s
+    networks: [backend]
+    restart: unless-stopped
+
+networks:
+  frontend: {}
+  backend:
+    internal: true
+
+volumes:
+  dbdata:

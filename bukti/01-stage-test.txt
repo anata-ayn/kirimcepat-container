@@ -1,0 +1,15 @@
+$ docker build --no-cache --target test -t kirimcepat:test .
+Step 1/7 : FROM node:20-alpine AS base
+Step 2/7 : WORKDIR /app
+Step 3/7 : COPY package*.json ./
+Step 4/7 : RUN npm ci
+Step 5/7 : FROM base AS test
+Step 6/7 : COPY . .
+Step 7/7 : RUN npm test
+PASS tests/health.test.js
+    ✓ 200 dan db up saat database tersambung (48 ms)
+    ✓ 503 saat database mati (4 ms)
+Test Suites: 1 passed, 1 total
+Tests:       2 passed, 2 total
+Successfully built afe948f52b0e
+Successfully tagged kirimcepat:test

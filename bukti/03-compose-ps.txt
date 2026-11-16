@@ -1,0 +1,7 @@
+$ docker compose config --quiet && echo "compose.yaml valid"
+compose.yaml valid
+
+$ docker compose ps
+NAME               IMAGE                              COMMAND                  SERVICE   CREATED          STATUS                    PORTS
+kirimcepat-app-1   anatabudiayuni/kirimcepat:latest   "docker-entrypoint.s…"   app       25 minutes ago   Up 24 minutes (healthy)   0.0.0.0:8000->8000/tcp, [::]:8000->8000/tcp
+kirimcepat-db-1    mysql:8                            "docker-entrypoint.s…"   db        25 minutes ago   Up 25 minutes (healthy)   3306/tcp, 33060/tcp

@@ -1,0 +1,15 @@
+$ docker compose stop db
+ Container kirimcepat-db-1  Stopping
+ Container kirimcepat-db-1  Stopped
+
+$ curl -i http://localhost:8000/health
+HTTP/1.1 503 Service Unavailable
+{"status":"error","db":"down"}
+
+$ docker compose start db
+ Container kirimcepat-db-1  Starting
+ Container kirimcepat-db-1  Started
+
+$ curl -i http://localhost:8000/health
+HTTP/1.1 200 OK
+{"status":"ok","db":"up"}

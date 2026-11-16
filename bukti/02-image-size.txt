@@ -1,0 +1,4 @@
+$ docker images
+REPOSITORY:TAG                     IMAGE ID       SIZE
+kirimcepat:test                    afe948f52b0e   313MB
+anatabudiayuni/kirimcepat:latest   114890a769e6   211MB
